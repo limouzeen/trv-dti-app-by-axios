@@ -82,7 +82,7 @@ function EditMyTravel() {
     width: 1,
   })
 
-  const handelUpdateTravelClick = async (e) =>{
+  const handleUpdateTravelClick = async (e) =>{
     e.preventDefault();
 
    //Validate UI แล้วค่อยส่งข้อมูลไปให้ API ทีฝั่ง Back-end
@@ -210,7 +210,7 @@ function EditMyTravel() {
             </Button>
           </Box>
           {/* -------------------- */}
-          <Button variant="contained" fullWidth onClick={handelUpdateTravelClick}
+          <Button variant="contained" fullWidth onClick={handleUpdatedTravelClick}
             sx={{ mt: 4, py: 2, backgroundColor: '#259e69' }} >
             บันทึกการเดินทาง
           </Button>
