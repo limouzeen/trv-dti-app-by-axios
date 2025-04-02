@@ -98,8 +98,8 @@ function EditProfile() {
 
           localStorage.clear()
           
-
-          localStorage.setItem('traveller', JSON.stringify(data["data"]))
+          localStorage.setItem('traveller', JSON.stringify(response.data["data"])); 
+       
 
           navigator('/mytravel')
         }else{
