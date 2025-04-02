@@ -14,6 +14,8 @@ function MyTravel() {
   const [travellerImage, setTravellerImage] = useState('')
   const [travel, setTravel] = useState([])
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     //เอาข้อมูลใน memory มาแสดงที่ AppBar
     //อ่านข้อมูลจาก memory เก็บในตัวแปร
