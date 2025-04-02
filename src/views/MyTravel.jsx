@@ -56,7 +56,7 @@ function MyTravel() {
 
       if(response.status === 200){
         alert('ลบข้อมูลเรียบร้อยแล้ว')
-        window.location.reload()
+        navigate('/mytravel')
       }else{
         alert('ลบข้อมูลไม่สำเร็จ กรุณาลองใหม่')
       }
