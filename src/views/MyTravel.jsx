@@ -45,27 +45,48 @@ function MyTravel() {
   }, [])
 
   //ฟังก์ชันลบ
-  const handleDeleteTravelClick = async (travelId)=>{
-    try{
-      // const response  = await fetch(`http://localhost:4000/travel/${travelId}`,{
-      //   method: 'DELETE',
-      //   headers: {
-      //     'Content-Type': 'application/json'
-      //   }
-      // })
+  // const handleDeleteTravelClick = async (travelId)=>{
+  //   try{
+  //     // const response  = await fetch(`http://localhost:4000/travel/${travelId}`,{
+  //     //   method: 'DELETE',
+  //     //   headers: {
+  //     //     'Content-Type': 'application/json'
+  //     //   }
+  //     // })
 
-      const response  = await axios.delete(`https://travel-serveice-by-prisma.vercel.app/travel/${travelId}`)
+  //     const response  = await axios.delete(`https://travel-serveice-by-prisma.vercel.app/travel/${travelId}`)
 
-      if(response.status === 200){
-        alert('ลบข้อมูลเรียบร้อยแล้ว')
-        navigate('/mytravel')
-      }else{
-        alert('ลบข้อมูลไม่สำเร็จ กรุณาลองใหม่')
+  //     if(response.status === 200){
+  //       alert('ลบข้อมูลเรียบร้อยแล้ว')
+  //       navigate('/mytravel')
+  //     }else{
+  //       alert('ลบข้อมูลไม่สำเร็จ กรุณาลองใหม่')
+  //     }
+  //   }catch(error){
+  //     alert('พบข้อผิดพลาดในการทำงาน: ', error)
+  //   }
+  // }
+
+  const handleDeleteTravelClick = async (travelId) => {
+    try {
+      const response = await axios.delete(
+        `https://travel-serveice-by-prisma.vercel.app/travel/${travelId}`
+      );
+  
+      if (response.status === 200) {
+        alert('ลบข้อมูลเรียบร้อยแล้ว');
+        // ลบข้อมูลจาก state โดยไม่ต้อง reload
+        setTravel((prevTravel) => prevTravel.filter(t => t.travelId !== travelId));
+      } else {
+        alert('ลบข้อมูลไม่สำเร็จ กรุณาลองใหม่');
       }
-    }catch(error){
-      alert('พบข้อผิดพลาดในการทำงาน: ', error)
+    } catch (error) {
+      console.error("ลบข้อมูลล้มเหลว:", error);
+      alert('พบข้อผิดพลาดในการทำงาน: ' + error.message);
     }
-  }
+  };
+  
+
 
   return (
     <>
